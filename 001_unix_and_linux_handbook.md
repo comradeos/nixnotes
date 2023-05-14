@@ -120,3 +120,6 @@ world
 comradeos@host:~/temp$ echo $(< file.txt)  
 hello world  
 
+<!-- установить утилиты для почты -->
+sudo apt install mailutils  
+
