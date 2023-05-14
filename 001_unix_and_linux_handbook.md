@@ -140,3 +140,12 @@ comradeos@host:~/temp$ echo "This is ${num}th deadly sin!"
 This is 7th deadly sin!
 comradeos@host:~/temp$
 ```
+```
+comradeos@host:~/temp$ name="Iaroslav Os"
+comradeos@host:~/temp$ echo 'My name is ${name}'
+My name is ${name}
+comradeos@host:~/temp$ echo "My name is ${name}"
+My name is Iaroslav Os
+comradeos@host:~/temp$
+```
+
