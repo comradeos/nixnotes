@@ -23,3 +23,9 @@ comradeos@host:~$ app
 Hello From Application!
 comradeos@host:~$
 ```
+
+## Определение факта инсталляции программного обеспечения
+```
+which gcc
+whereis gcc
+```
