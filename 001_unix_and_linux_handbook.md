@@ -149,3 +149,6 @@ My name is Iaroslav Os
 comradeos@host:~/temp$
 ```
 
+## подсчет строк, слов и символов
+<!-- word count -->
+wc /etc/passwd  
