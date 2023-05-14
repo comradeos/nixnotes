@@ -132,3 +132,11 @@ Hello world!
 ```
 
 <!-- Ctrl+D прекратить ввод -->
+
+## Переменные
+```
+comradeos@host:~/temp$ num=7
+comradeos@host:~/temp$ echo "This is ${num}th deadly sin!"
+This is 7th deadly sin!
+comradeos@host:~/temp$
+```
