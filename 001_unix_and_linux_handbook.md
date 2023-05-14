@@ -123,3 +123,12 @@ hello world
 <!-- установить утилиты для почты -->
 sudo apt install mailutils  
 
+## Отправить письмо
+```
+comradeos@host:~/temp$ mail -s "another sub"
+To: osmnbx@gmail.com
+Cc:
+Hello world!
+```
+
+<!-- Ctrl+D прекратить ввод -->
