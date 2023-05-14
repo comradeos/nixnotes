@@ -152,3 +152,7 @@ comradeos@host:~/temp$
 ## подсчет строк, слов и символов
 <!-- word count -->
 wc /etc/passwd  
+
+## просмотр файла с ожидаем
+tail -f my_file.txt  
+
