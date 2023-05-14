@@ -103,4 +103,20 @@ server {
 
 <!-- TTY, Teleprinter/Teletype/Teletypewriter  -->
 
+## Перенаправление потока ввода/вывода
+<!-- напечатать слово hello в файл  file.txt -->
+comradeos@host:~/temp$ echo "hello" > file.txt
+<!-- посмотреть содержимое файла  -->
+comradeos@host:~/temp$ cat ./file.txt  
+hello  
+
+<!-- дописать в файл слово world -->
+comradeos@host:~/temp$ echo "world" >> file.txt  
+comradeos@host:~/temp$ cat ./file.txt  
+hello  
+world  
+
+<!-- прочитать содержимое файла перенаправлением потока ввода -->
+comradeos@host:~/temp$ echo $(< file.txt)  
+hello world  
 
