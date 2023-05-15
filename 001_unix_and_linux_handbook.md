@@ -176,4 +176,13 @@ Hello, world!
 ```
 
 <!-- найти в текущей папке все файлы закончивающиеся на ".log" -->
-comradeos@host:~/temp$ find . -name "*.log"  
+comradeos@host:~/temp$ find . -name "*.log"    
+
+## Ввод в консоли
+```
+comradeos@host:~/temp$ echo -n "You name? " && read username && echo "Hello, ${username}!"  
+You name? Iaroslav Os  
+Hello, Iaroslav Os!  
+```
+
+
