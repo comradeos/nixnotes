@@ -156,3 +156,4 @@ wc /etc/passwd
 ## просмотр файла с ожидаем
 tail -f my_file.txt  
 
+
