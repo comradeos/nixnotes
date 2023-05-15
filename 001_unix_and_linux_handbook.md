@@ -205,3 +205,16 @@ fi
 
 comradeos@host:~/temp$ chmod +x ./read_example.sh  
 
+```
+comradeos@host:~/temp$ ./read_example.sh
+Enter your name:
+You didn't provide your name!
+```
+
+```
+comradeos@host:~/temp$ ./read_example.sh
+Enter your name: Iaroslav
+Hello Iaroslav!
+comradeos@host:~/temp$
+```
+
