@@ -224,3 +224,13 @@ $1 — первый аргумент командной строки,
 $2 — второй и т.д.   
 Аргумент $0 содер­жит имя, по которому был вызван сценарий  
 
+
+comradeos@host:~/temp$ vim args_test.sh  
+```
+#!/bin/bash
+echo "arguments: ${0}, ${1}, ${2}"
+```
+chmod +rwx args_test.sh  
+comradeos@host:~/temp$ ./args_test.sh arg_A arg_B  
+arguments: ./args_test.sh, arg_A, arg_B  
+
