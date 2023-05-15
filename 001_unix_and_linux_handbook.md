@@ -166,3 +166,10 @@ echo "hello world"
 comradeos@host:~/temp$ chmod +x helloworld.sh  
 comradeos@host:~/temp$ ./helloworld.sh  
 hello world  
+
+## запустить (активизировать) оболочку в качестве ин­терпретатора сценария
+$ bash helloworld  
+Hello, world!  
+$ source helloworld  
+Hello, world!  
+
