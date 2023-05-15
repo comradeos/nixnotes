@@ -353,3 +353,22 @@ ___
 Файл файл1 старше, чем файл2  
 ___
 
+## Циклы
+
+comradeos@host:~/temp$ vim test_loop.sh  
+```
+#!/bin/bash
+
+for script in *.sh;
+do
+        newname="${script}_copy"
+        echo "Copying ${script} to ${newname}..."
+done
+
+```
+comradeos@host:~/temp$ bash ./test_loop.sh  
+Copying args_test.sh to args_test.sh_copy...  
+Copying helloworld.sh to helloworld.sh_copy...  
+Copying read_example.sh to read_example.sh_copy...  
+Copying test_loop.sh to test_loop.sh_copy...  
+comradeos@host:~/temp$  
