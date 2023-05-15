@@ -175,3 +175,5 @@ $ source helloworld
 Hello, world!  
 ```
 
+<!-- найти в текущей папке все файлы закончивающиеся на ".log" -->
+comradeos@host:~/temp$ find . -name "*.log"  
