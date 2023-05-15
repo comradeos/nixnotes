@@ -157,3 +157,12 @@ wc /etc/passwd
 tail -f my_file.txt  
 
 
+## bash скрипты
+comradeos@host:~/temp$ vim helloworld.sh  
+```
+#!/bin/bash
+echo "hello world"
+```
+comradeos@host:~/temp$ chmod +x helloworld.sh  
+comradeos@host:~/temp$ ./helloworld.sh  
+hello world  
