@@ -372,3 +372,16 @@ Copying helloworld.sh to helloworld.sh_copy...
 Copying read_example.sh to read_example.sh_copy...  
 Copying test_loop.sh to test_loop.sh_copy...  
 comradeos@host:~/temp$  
+
+## Массивы и арифметика
+
+#!/bin/bash
+а=1
+b=$((2))
+с=$а+$b
+d=$(($a+$b))
+echo "$а + $b = $с \t(знак плюс как строковый литерал)"
+echo "$а + $b = $d \t(знак плюс как арифметическое сложение)"
+При выполнении этого сценария получим такой результат.
+1 + 2 = 1+2 (знак плюс как строковый литерал)
+1 + 2 = 3 (знак плюс как арифметическое сложение)
