@@ -396,3 +396,8 @@ comradeos@host:~$ echo ${arr[3]}
 hello  
 comradeos@host:~$  
 
+comradeos@host:~$ echo ${arr[@]}  
+1 2 3 hello  
+<!-- вывести количество элементов -->
+comradeos@host:~$ echo ${#arr[@]}  
+4  
