@@ -428,3 +428,13 @@ $ Совпадает с концом строки
 {min, } Не менее min повторений (обратите внимание на запятую)
 {min,max} Любое число (от min до max) повторений
 ```
+
+## Perl
+
+comradeos@host:~/temp$ vim helloperl.pl   
+#!/usr/bin/perl  
+print "hello from Perl!\n";  
+
+comradeos@host:~/temp$ chmod +x helloperl.pl  
+comradeos@host:~/temp$ ./helloperl.pl  
+hello from Perl!  
