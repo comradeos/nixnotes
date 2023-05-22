@@ -391,3 +391,8 @@ comradeos@host:~$ my_arr=(hello world ! 'Iaroslav Os')
 comradeos@host:~$ echo ${my_arr[0]}  
 hello  
 
+comradeos@host:~$ arr=(1 2 3 'hello')  
+comradeos@host:~$ echo ${arr[3]}  
+hello  
+comradeos@host:~$  
+
