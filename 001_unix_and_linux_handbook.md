@@ -401,3 +401,9 @@ comradeos@host:~$ echo ${arr[@]}
 <!-- вывести количество элементов -->
 comradeos@host:~$ echo ${#arr[@]}  
 4  
+
+  a=(a b c d e f)  
+  for i in ${a[@]};  
+  do  
+          echo "$i"  
+  done  
