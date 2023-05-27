@@ -442,3 +442,8 @@ comradeos@host:~/temp$ chmod +x helloperl.pl
 comradeos@host:~/temp$ ./helloperl.pl  
 hello from Perl!  
 
+## Процессы
+
+Присмотр процессов:   
+ps
+
