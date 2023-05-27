@@ -1,3 +1,4 @@
+<!-- VM -->
 # ssh comradeos@192.168.121.134
 
 ## UNIX and Linux System Administration Handbook
