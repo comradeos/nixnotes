@@ -466,4 +466,6 @@ sudo mkdir /mnt/USB
 sudo mount /dev/sdb1 /mnt/USB/  
 <!-- демонтировать -->
 sudo umount /mnt/USB  
+
+
  
