@@ -460,7 +460,10 @@ ps
 или  
 lsblk - list block devices   
 
+<!-- создать папку для монтирования -->
 sudo mkdir /mnt/USB  
+<!-- монтировать -->
 sudo mount /dev/sdb1 /mnt/USB/  
+<!-- демонтировать -->
 sudo umount /mnt/USB  
  
