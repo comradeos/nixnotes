@@ -459,3 +459,8 @@ ps
 после подключения usb выполнить sudo dmesg  
 или  
 lsblk - list block devices   
+
+sudo mkdir /mnt/USB  
+sudo mount /dev/sdb1 /mnt/USB/  
+sudo umount /mnt/USB  
+ 
