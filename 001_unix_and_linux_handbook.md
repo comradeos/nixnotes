@@ -455,3 +455,7 @@ ps
 <!-- -h показывать плвавающий размер файлов b/Kb/Mb/Gb ... -->
  ls -la -h  
 
+# USB монтированик
+после подключения usb выполнить sudo dmesg  
+или  
+lsblk - list block devices 
