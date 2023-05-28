@@ -449,4 +449,5 @@ hello from Perl!
 ps
 
 <!-- master boot record — MBR -->
-<!-- GRUB (GRand Unified Boot loader), -->
+<!-- GRUB (GRand Unified Boot loader) -->
+<!-- параметры загрузки из файла /boot/grub/menu.lst или /boot/grub/grub.conf -->
