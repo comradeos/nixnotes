@@ -448,3 +448,4 @@ hello from Perl!
 Присмотр процессов:   
 ps
 
+<!-- master boot record — MBR -->
