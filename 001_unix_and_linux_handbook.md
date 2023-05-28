@@ -458,4 +458,4 @@ ps
 # USB монтированик
 после подключения usb выполнить sudo dmesg  
 или  
-lsblk - list block devices 
+lsblk - list block devices   
