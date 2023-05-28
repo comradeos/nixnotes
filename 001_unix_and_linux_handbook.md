@@ -1,5 +1,6 @@
 <!-- VM -->
 # ssh comradeos@192.168.121.134
+<!-- ssh -i C:\Users\comradeos\.ssh\vm_ubuntu_server comradeos@192.168.121.134 -->
 
 ## UNIX and Linux System Administration Handbook
 ### By Evi Nemeth, Garth Snyder, Trent R. Hein, Ben Whaley, Dan Mackin  
