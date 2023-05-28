@@ -446,8 +446,11 @@ hello from Perl!
 ## Процессы
 
 Присмотр процессов:   
-ps
+ps  
 
 <!-- master boot record — MBR -->
 <!-- GRUB (GRand Unified Boot loader) -->
 <!-- параметры загрузки из файла /boot/grub/menu.lst или /boot/grub/grub.conf -->
+
+<!-- -h показывать плвавающий размер файлов b/Kb/Mb/Gb ... -->
+ ls -la -h  
