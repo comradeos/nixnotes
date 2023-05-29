@@ -468,3 +468,10 @@ sudo mount /dev/sdb1 /mnt/USB/
 sudo umount /mnt/USB  
 
 sudo apt install default-mysql-server  
+
+## Создание пользователя
+useradd -m USERNAME  
+passwd USERNAME  
+
+<!-- https://linuxopsys.com/topics/create-home-directory-existing-user-linux -->
+
