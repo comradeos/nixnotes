@@ -38,3 +38,21 @@ server {
 }
 ```
 
+## Run django project example 
+```
+sudo su
+
+sudo python3 -m venv env
+
+source ./env/bin/activate
+
+deactivate
+
+pip uninstall django
+
+pip install django
+
+django-admin startproject example
+
+python3 manage.py runserver
+```
