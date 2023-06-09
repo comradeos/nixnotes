@@ -24,3 +24,15 @@ ssh comradeos@10.211.55.4
 ssh -i private_key_name username@ip_adress  
 ssh -i winkey comradeos@10.211.55.4  
 
+разрешить руту  
+vim /etc/ssh/sshd_config  
+
+изменить с:  
+PermitRootLogin without-password  
+на:  
+PermitRootLogin yes  
+
+рестарт демона ssh  
+/etc/init.d/ssh restart  
+
+https://linuxconfig.org/enable-ssh-root-login-on-debian-linux-server  
