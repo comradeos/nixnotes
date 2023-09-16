@@ -36,3 +36,7 @@ PermitRootLogin yes
 /etc/init.d/ssh restart  
 
 https://linuxconfig.org/enable-ssh-root-login-on-debian-linux-server  
+
+
+скопировать файл через ssh
+scp admin@176.37.60.108:/etc/nginx/sites-available/default D:\default
