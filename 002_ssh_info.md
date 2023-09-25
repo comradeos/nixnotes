@@ -38,5 +38,8 @@ PermitRootLogin yes
 https://linuxconfig.org/enable-ssh-root-login-on-debian-linux-server  
 
 
-скопировать файл через ssh
+скопировать файл через ssh  
+
 scp admin@176.37.60.108:/etc/nginx/sites-available/default D:\default
+
+scp D:/Images/* root@ipaddress:/home/usr/Images
