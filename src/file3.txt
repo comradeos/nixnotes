@@ -1,0 +1,199 @@
+using System.Globalization;
+using Vending.App.Tables;
+using Vending.App.Classes;
+using Vending.App.Components;
+using Vending.App.Classes.Http;
+using Vending.Models;
+using static Vending.App.HttpCoreApi.Controllers.Devices.DevicesHelper;
+
+namespace Vending.App.HttpCoreApi.Controllers.Devices;
+
+internal class DeviceBunkerUpdateController : AbstractController
+{
+    public static readonly string _route = "device.bunker.update";
+    public static readonly string _group = "devices";
+
+    public DeviceBunkerUpdateController(Request request, User user, UserSession userSession) : base(request, user, userSession)
+    {
+    }
+
+    public override ResponseMessage Action()
+    {
+        int unit_id = GetInt(_request.PostParam("unit_id"), "unit_id");
+        int? ingredient_id = GetIntOrNull(_request.PostParam("ingredient_id"));
+        int order_number = GetInt(_request.PostParam("order_number"), "order_number");
+        decimal min_capacity = GetDecimal(_request.PostParam("min_capacity"), "min_capacity");
+        decimal capacity = GetDecimal(_request.PostParam("capacity"), "capacity");
+        decimal max_capacity = GetDecimal(_request.PostParam("max_capacity"), "max_capacity");
+        decimal weight = GetDecimal(_request.PostParam("weight"), "weight");
+        
+        DeviceComponent component = GetDeviceComponent(IdPost, _user);
+        
+        List<DeviceBunkerHistory> deviceBunkerHistoryList = new();
+        CultureInfo culture = CultureInfo.InvariantCulture;
+            
+        if (!Units.IsExist(unit_id))
+        {
+            throw new ControllerException("unit_id not found");
+        }
+        
+        if (ingredient_id.HasValue && GetIngredientById(ingredient_id.Value) == null)
+        {
+            throw new ControllerException("ingredient_id not found");
+        }
+        
+        DeviceBunker deviceBunker = component.DeviceBunkers.Find(x => x.OrderNumber == order_number)
+            ?? throw new ControllerException("device bunker not found");
+    
+        if (deviceBunker.UnitId != unit_id)
+        {
+            deviceBunkerHistoryList.Add(new DeviceBunkerHistory()
+            {
+                DeviceBunkerId = deviceBunker.Id,
+                ActionId = (int)DeviceBunkerActions.CHANGE_UNIT_ID,
+                ValueBefore = deviceBunker.UnitId.ToString(),
+                ValueAfter = unit_id.ToString(),
+                UserId = _user.Id,
+                UserName = _user.Name,
+            });
+            
+            deviceBunker.UnitId = unit_id;
+        }
+        
+        if (deviceBunker.IngredientId != ingredient_id)
+        {
+            deviceBunkerHistoryList.Add(new DeviceBunkerHistory()
+            {
+                DeviceBunkerId = deviceBunker.Id,
+                ActionId = (int)DeviceBunkerActions.CHANGE_INGREDIENT_ID,
+                ValueBefore = deviceBunker.IngredientId.ToString(),
+                ValueAfter = ingredient_id.ToString(),
+                UserId = _user.Id,
+                UserName = _user.Name,
+            });
+            
+            deviceBunker.IngredientId = ingredient_id;
+        }
+        
+        if (deviceBunker.OrderNumber != order_number)
+        {
+            deviceBunkerHistoryList.Add(new DeviceBunkerHistory()
+            {
+                DeviceBunkerId = deviceBunker.Id,
+                ActionId = (int)DeviceBunkerActions.CHANGE_ORDER_NUMBER,
+                ValueBefore = deviceBunker.OrderNumber.ToString(),
+                ValueAfter = order_number.ToString(),
+                UserId = _user.Id,
+                UserName = _user.Name,
+            });
+            
+            deviceBunker.OrderNumber = order_number;
+        }
+        
+        if (deviceBunker.MinCapacity != min_capacity)
+        {
+            deviceBunkerHistoryList.Add(new DeviceBunkerHistory()
+            {
+                DeviceBunkerId = deviceBunker.Id,
+                ActionId = (int)DeviceBunkerActions.CHANGE_MIN_CAPACITY,
+                ValueBefore = deviceBunker.MinCapacity.ToString(culture),
+                ValueAfter = min_capacity.ToString(culture),
+                UserId = _user.Id,
+                UserName = _user.Name,
+            });
+            
+            deviceBunker.MinCapacity = min_capacity;
+        }
+        
+        if (deviceBunker.Capacity != capacity)
+        {
+            deviceBunkerHistoryList.Add(new DeviceBunkerHistory()
+            {
+                DeviceBunkerId = deviceBunker.Id,
+                ActionId = (int)DeviceBunkerActions.CHANGE_CAPACITY,
+                ValueBefore = deviceBunker.Capacity.ToString(culture),
+                ValueAfter = capacity.ToString(culture),
+                UserId = _user.Id,
+                UserName = _user.Name,
+            });
+            
+            deviceBunker.Capacity = capacity;
+        }
+        
+        if (deviceBunker.MaxCapacity != max_capacity)
+        {
+            deviceBunkerHistoryList.Add(new DeviceBunkerHistory()
+            {
+                DeviceBunkerId = deviceBunker.Id,
+                ActionId = (int)DeviceBunkerActions.CHANGE_MAX_CAPACITY,
+                ValueBefore = deviceBunker.MaxCapacity.ToString(CultureInfo.InvariantCulture),
+                ValueAfter = max_capacity.ToString(CultureInfo.InvariantCulture),
+                UserId = _user.Id,
+                UserName = _user.Name,
+            });
+            
+            deviceBunker.MaxCapacity = max_capacity;
+        }
+        
+        if (deviceBunker.Weight != weight)
+        {
+            deviceBunkerHistoryList.Add(new DeviceBunkerHistory()
+            {
+                DeviceBunkerId = deviceBunker.Id,
+                ActionId = (int)DeviceBunkerActions.CHANGE_WEIGHT,
+                ValueBefore = deviceBunker.Weight.ToString(culture),
+                ValueAfter = weight.ToString(culture),
+                UserId = _user.Id,
+                UserName = _user.Name,
+            });
+
+            deviceBunker.Weight = weight;            
+        }
+        
+        try
+        {
+            DB().Transaction();
+
+            deviceBunker.Save(_user);
+            
+            RecordDeviceBunkerHistory(deviceBunkerHistoryList);
+
+            DB().Commit();
+        }
+        catch (Exception e)
+        {
+            DB().Rollback();
+
+            LogSystemException(e);
+
+            throw new ControllerException("failed to update device bunker");
+        }
+        
+        return new() { Result = true, Data = new IdModel(deviceBunker.Id) };
+    }
+
+    private static void RecordDeviceBunkerHistory(List<DeviceBunkerHistory> deviceBunkerHistoryList)
+    {
+        foreach (DeviceBunkerHistory deviceBunkerHistory in deviceBunkerHistoryList)
+        {
+            try
+            {
+                DB().Transaction();
+
+                deviceBunkerHistory.Save();
+
+                DB().Commit();
+            }
+            catch (Exception e)
+            {
+                DB().Rollback();
+
+                LogSystemException(e);
+
+                throw new ControllerException("failed to record device bunker history");
+            }
+        }
+    }
+}
+
+
