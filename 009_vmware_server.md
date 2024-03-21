@@ -9,6 +9,9 @@ gateway 192.168.0.1
 dns-nameservers 8.8.8.8 8.8.4.4
 ```
 
+sudo ifdown ens33 && sudo ifup ens33
+
+
 #### Настройки /etc/resolv.conf
 ```
 nameserver 8.8.8.8
