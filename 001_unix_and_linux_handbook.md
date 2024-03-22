@@ -474,3 +474,6 @@ useradd -m USERNAME
 passwd USERNAME  
 
 <!-- https://linuxopsys.com/topics/create-home-directory-existing-user-linux -->
+
+
+1
