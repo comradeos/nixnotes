@@ -54,3 +54,32 @@ sudo apt install -y dotnet-sdk-6.0
 
 dotnet --version
 ```
+
+
+
+LightDM Gtk+ Greeter
+
+sudo apt-get install lightdm-gtk-greeter
+sudo apt-get install lightdm-gtk-greeter-settings
+sudo apt-get install net-tools
+
+sudo nano /etc/network/interfaces
+
+------------------------------------------------------------------------
+
+This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+# auto lo
+# iface lo inet loopback
+
+auto ens33
+iface ens33 inet static
+    address 192.168.1.105
+    netmask 255.255.255.0
+    gateway 192.168.0.1
+
+------------------------------------------------------------------------
