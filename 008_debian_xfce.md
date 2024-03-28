@@ -73,8 +73,8 @@ This file describes the network interfaces available on your system
 source /etc/network/interfaces.d/*
 
 # The loopback network interface
-# auto lo
-# iface lo inet loopback
+auto lo
+iface lo inet loopback
 
 auto ens33
 iface ens33 inet static
