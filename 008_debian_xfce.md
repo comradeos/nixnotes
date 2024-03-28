@@ -78,8 +78,17 @@ source /etc/network/interfaces.d/*
 
 auto ens33
 iface ens33 inet static
-    address 192.168.1.105
+    address 192.168.0.105
     netmask 255.255.255.0
     gateway 192.168.0.1
 
 ------------------------------------------------------------------------
+
+sudo nano /etc/resolv.conf
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+
+------------------------------------------------------------------------
+
+sudo ifdown ens33 && sudo ifup ens33
