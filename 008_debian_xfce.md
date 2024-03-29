@@ -76,11 +76,13 @@ source /etc/network/interfaces.d/*
 auto lo
 iface lo inet loopback
 
+# The primary network interface
 auto ens33
 iface ens33 inet static
-    address 192.168.0.105
+    address 192.168.1.100
     netmask 255.255.255.0
-    gateway 192.168.0.1
+    gateway 192.168.1.1
+    dns-nameservers 8.8.8.8 8.8.4.4
 
 ------------------------------------------------------------------------
 
