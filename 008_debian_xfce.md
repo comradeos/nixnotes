@@ -79,9 +79,9 @@ iface lo inet loopback
 # The primary network interface
 auto ens33
 iface ens33 inet static
-    address 192.168.1.100
+    address 192.168.0.108
     netmask 255.255.255.0
-    gateway 192.168.1.1
+    gateway 192.168.0.1
     dns-nameservers 8.8.8.8 8.8.4.4
 
 ------------------------------------------------------------------------
@@ -94,3 +94,13 @@ nameserver 8.8.4.4
 ------------------------------------------------------------------------
 
 sudo ifdown ens33 && sudo ifup ens33
+
+или 
+
+sudo ifdown ens33 --force
+sudo ifup ens33
+
+
+
+
+шрифты тут - /usr/share/fonts/
