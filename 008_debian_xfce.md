@@ -104,3 +104,5 @@ sudo ifup ens33
 
 
 шрифты тут - /usr/share/fonts/
+
+
