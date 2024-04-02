@@ -1,3 +1,12 @@
+sudo apt install mc vim nano cowsay snapd gcc g++ clang htop iftop wget curl git nginx net-tools -y
+
+
+https://go.dev/doc/install
+sudo mv ~/Downloads/go1.22.1.linux-amd64/go go
+export PATH=$PATH:/usr/local/go/bin
+
+
+
 добавить в PATH папку с приложениями snap
 ```
 export PATH=$PATH:/snap/bin
@@ -106,3 +115,16 @@ sudo ifup ens33
 шрифты тут - /usr/share/fonts/
 
 
+
+
+sudo apt update
+sudo apt install php
+
+
+sudo apt update
+sudo apt install php-fpm
+
+
+debian посмотреть список запущеных сервисов
+
+systemctl --type=service --state=running
