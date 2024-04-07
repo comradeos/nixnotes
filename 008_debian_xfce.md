@@ -1,4 +1,4 @@
-sudo apt install mc vim nano cowsay snapd gcc g++ clang htop iftop wget curl git nginx net-tools -y
+sudo apt install mc vim nano cowsay snapd gcc g++ clang htop iftop wget curl git nginx net-tools default-jdk default-jre screen sudo -y
 
 
 https://go.dev/doc/install
@@ -128,3 +128,18 @@ sudo apt install php-fpm
 debian посмотреть список запущеных сервисов
 
 systemctl --type=service --state=running
+
+
+https://docs.docker.com/engine/install/debian/
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world
+
+cd ~/.ssh
+git config --global user.name "Iaroslav Os"
+git config --global user.email "osmnbx@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "osmnbx@gmail.com"
+cat ~/.ssh/id_rsa.pub
+ssh -T git@github.com
