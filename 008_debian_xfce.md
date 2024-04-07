@@ -143,3 +143,13 @@ git config --global user.email "osmnbx@gmail.com"
 ssh-keygen -t rsa -b 4096 -C "osmnbx@gmail.com"
 cat ~/.ssh/id_rsa.pub
 ssh -T git@github.com
+
+
+
+
+
+wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+source ~/.bashrc
+go version
