@@ -1,6 +1,13 @@
 https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 
 
+sudo visudo
+jenkins ALL=(ALL) NOPASSWD: ALL
+
+
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+
 ### Plugins 
 SSH Slaves
 SSH Agent
