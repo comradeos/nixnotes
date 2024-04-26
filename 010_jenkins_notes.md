@@ -1,3 +1,6 @@
+https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+
+
 ### Plugins 
 SSH Slaves
 SSH Agent
