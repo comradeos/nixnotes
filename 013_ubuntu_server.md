@@ -29,6 +29,9 @@ network:
 sudo netplan apply
 ```
 
+<!-- Filesystem      Size  Used Avail Use% Mounted on -->
+<!-- /dev/sda3        94G  2.1G   88G   3% / -->
+
 ### Dotnet SDK 
 ```
 wget https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -43,6 +46,9 @@ sudo apt-get install -y dotnet-sdk-8.0
 ```
 dotnet --version
 ```
+<!-- Filesystem      Size  Used Avail Use% Mounted on -->
+<!-- /dev/sda3        94G  2.7G   87G   3% / -->
+
 ### Java SDK 
 ```
 sudo apt-get update
@@ -170,6 +176,10 @@ sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=compose
 ```
 composer
 ```
+
+<!-- Filesystem      Size  Used Avail Use% Mounted on -->
+<!-- /dev/sda3        94G  5.5G   84G   7% / -->
+
 ### Xfce Desktop Environments
 ```
 sudo apt-get update
