@@ -1,8 +1,35 @@
 ```
-ssh -p 722 io@176.37.60.108
+ssh -p 13822 io@176.37.60.108
+```
+```
+ssh io@192.168.0.138
 ```
 
-### dotnet SDK 
+### Static IP
+```
+sudo nano /etc/netplan/[file]
+```
+```
+network:
+  version: 2
+  ethernets:
+    ens33:
+      dhcp4: no
+      addresses:
+        - 192.168.0.138/24
+      routes:
+        - to: default
+          via: 192.168.0.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+```
+```
+sudo netplan apply
+```
+
+### Dotnet SDK 
 ```
 wget https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
@@ -101,7 +128,7 @@ reboot/logout/login
 ```
 sudo systemctl enable docker
 ```
-### mc, git, make, htop, iftop
+### MC, Git, Make, Htop, Iftop
 
 ```
 sudo apt-get install -y mc git make htop iftop
@@ -110,7 +137,7 @@ sudo apt-get install -y mc git make htop iftop
 ```
 sudo apt install -y python3-pip
 ```
-### node php composer
+### Node Php Composer
 ```
 ```
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -143,6 +170,37 @@ sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=compose
 ```
 composer
 ```
+### Xfce Desktop Environments
+```
+sudo apt-get update
+sudo apt-get install -y sudo chown -R $USER:$USER /home/$USER
+```
+```
+sudo apt-get install -y lightdm
+sudo dpkg-reconfigure lightdm
+```
+```
+sudo chown -R $USER:$USER /home/$USER
+```
+```
+sudo nano /etc/lightdm/lightdm.conf
+```
+```
+[Seat:*]
+user-session=xfce
+```
+```
+sudo apt-get install -y xfce4 xfce4-goodies
+```
+```
+sudo reboot
+```
+### Вход без пароля
+```
+sudo nano /etc/lightdm/lightdm.conf
+```
+```
+sudo reboot
 ```
 ```
 ```
