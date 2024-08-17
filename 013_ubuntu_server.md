@@ -145,12 +145,12 @@ sudo apt install -y python3-pip
 ```
 ### Node Php Composer
 ```
-```
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 ```
 sudo apt-get install -y php php-cli php-mbstring php-xml
+```
 ```
 sudo apt update
 ```
