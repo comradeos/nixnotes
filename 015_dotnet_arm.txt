@@ -1,0 +1,16 @@
+
+sudo rm -R $HOME/dotnet
+
+wget https://download.visualstudio.microsoft.com/download/pr/2ff9a08a-9a84-498d-83e2-82e3e3c3d03d/64b283f30bb7df0260c8a7596dfcdff4/dotnet-sdk-6.0.425-linux-arm.tar.gz -O dotnet-sdk.tar.gz
+wget https://download.visualstudio.microsoft.com/download/pr/ec8e29f5-2fbe-47d8-b0c5-81f11434c00f/ba4bd30be448d649e5ddf1991bf76252/dotnet-sdk-6.0.425-linux-arm64.tar.gz -O dotnet-sdk.tar.gz
+
+wget https://download.visualstudio.microsoft.com/download/pr/788ca4e7-c3ea-405d-9f82-2d362d4a08f6/d54b1aefd4048bcf4eebb24edfc6aeb9/dotnet-sdk-8.0.401-linux-arm.tar.gz -O dotnet-sdk.tar.gz
+wget https://download.visualstudio.microsoft.com/download/pr/8f3dec03-a016-4c06-a4b0-04efcffbe521/e0e94170cbed0aa9312be63e43a69932/dotnet-sdk-8.0.401-linux-musl-arm64.tar.gz -O dotnet-sdk.tar.gz
+
+mkdir -p $HOME/dotnet
+tar -zxf dotnet-sdk.tar.gz -C $HOME/dotnet
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+source ~/.bashrc
+dotnet --version
+
