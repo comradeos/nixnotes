@@ -1,0 +1,29 @@
+ctrl+a ? (help)
+
+ctr+a + (shift \) - разделить екран вертикально
+ctr+a + (shift+s) - разделить екран горизонтально 
+ctr+a+tab- переключение 
+ctr+a+c - становление курсора
+ctrl+X - закрыть текущее 
+
+tmux 
+розділити екран горизонтально - ctr+b + shift+5
+c+b
+shift5 
+shift+"(є'э)
+
+
+cb w - вікна
+cb c - нове вікно
+cb s = спиcок сессій
+cb + стрілка - переміщення між вікнами
+exit - вихід
+
+io@fedora:~$ tmux ls
+ms1: 2 windows (created Fri Dec 20 17:25:46 2024)
+io@fedora:~$ tmux attach -t ms1
+
+/home/io/Workspace/temp/io_app_a
+/home/io/Workspace/temp/io_app_b
+
+tmux new-session -d '/home/io/Workspace/temp/io_app_a' \; split-window -h '/home/io/Workspace/temp/io_app_b'
