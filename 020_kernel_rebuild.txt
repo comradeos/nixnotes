@@ -1,0 +1,33 @@
+Текущая версия
+uname -a
+
+Установи нужные пакеты
+sudo apt update
+sudo apt install -y build-essential libncurses-dev bison flex libssl-dev libelf-dev wget bc
+
+Перейди в рабочую папку
+mkdir -p ~/kernel-build
+cd ~/kernel-build
+
+Скачай исходники ядра
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.tar.xz
+tar -xf linux-6.9.tar.xz
+cd linux-6.9
+
+Скопируй свою текущую конфигурацию
+cp /boot/config-$(uname -r) .config
+
+Обнови конфиг до нового ядра
+make olddefconfig
+или, если хочешь руками потыкать
+make menuconfig
+
+Собери ядро (это будет долго — минут 10-30)
+make -j$(nproc)
+
+Установи модули
+sudo make modules_install
+
+Установи само ядро
+sudo make install
+
