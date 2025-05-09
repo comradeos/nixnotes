@@ -31,3 +31,11 @@ sudo make modules_install
 Установи само ядро
 sudo make install
 
+Обнови grub (если Debian грузится через grub, а не напрямую через Parallels boot):
+sudo update-grub
+
+Перезагрузи систему
+sudo reboot
+
+
+uname -r
