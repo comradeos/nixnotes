@@ -32,3 +32,22 @@ Username: io
 Password: (пароль пользователя io)
 Port: 21
 /home/io/Storage.
+
+
+
+
+
+
+
+
+
+
+
+sudo useradd -M io
+sudo passwd io
+getent passwd io
+
+
+если нет ufw 
+sudo iptables -A INPUT -p tcp --dport 21 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 40000:50000 -j ACCEPT
