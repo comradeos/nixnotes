@@ -36,6 +36,11 @@ Port: 21
 
 
 
+sudo usermod -d /_reps/ElvatechUpdater/Files elvax
+
+
+
+
 
 
 
@@ -49,5 +54,17 @@ getent passwd io
 
 
 если нет ufw 
+sudo iptables -A INPUT -p tcp --dport 21 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 40000:50000 -j ACCEPT
+
+
+
+
+
+
+sudo useradd -M elvax
+sudo passwd elvax
+getent passwd elvax
+
 sudo iptables -A INPUT -p tcp --dport 21 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 40000:50000 -j ACCEPT
