@@ -68,3 +68,4 @@ getent passwd elvax
 
 sudo iptables -A INPUT -p tcp --dport 21 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 40000:50000 -j ACCEPT
+
