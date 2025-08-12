@@ -1,0 +1,92 @@
+# 1) Обновление системы
+sudo apt update && sudo apt upgrade -y
+
+# 2) Базовые инструменты, компиляторы, мониторинг + vim
+sudo apt install -y \
+  build-essential \
+  gcc g++ make \
+  clang \
+  htop iftop btop \
+  tmux \
+  vim \
+  curl wget unzip git 
+
+# 3) Nginx (из официального репо nginx.org)
+sudo apt update && sudo apt install -y nginx
+
+# 4) Python 3 (из Debian)
+sudo apt install -y python3 python3-pip python3-venv
+
+# 5) PHP
+sudo apt update && sudo apt install -y \
+  php \
+  php-cli \
+  php-fpm \
+  php-mbstring \
+  php-xml \
+  php-curl \
+  php-zip
+
+# 6) Java 
+sudo apt update && sudo apt install -y openjdk-21-jdk
+
+# 7) Go (последняя стабильная с go.dev)
+# Узнаём последнюю версию
+GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1)
+# Скачиваем и устанавливаем
+wget https://go.dev/dl/${GO_VERSION}.linux-arm64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-arm64.tar.gz
+rm ${GO_VERSION}.linux-arm64.tar.gz
+# Добавляем в PATH
+if ! grep -q "/usr/local/go/bin" ~/.bashrc; then
+  echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+fi
+source ~/.bashrc
+# Проверяем
+go version
+
+# 8) Erlang
+sudo apt update && sudo apt install -y erlang
+
+# 9) Dart & Flutter (Dart из репо, Flutter из git)
+git clone https://github.com/flutter/flutter.git -b stable $HOME/flutter
+# добавить в PATH (даёт команды flutter и dart)
+if ! grep -q "$HOME/flutter/bin" ~/.bashrc; then
+  echo 'export PATH=$PATH:$HOME/flutter/bin' >> ~/.bashrc
+fi
+source ~/.bashrc
+# Первичный прогрев кеша (скачает SDK)
+flutter --version
+# Проверка
+dart --version
+flutter doctor
+
+# 10) Node.js
+sudo apt install -y nodejs
+
+# 11) .NET Core 9 SDK
+wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+chmod +x dotnet-install.sh
+./dotnet-install.sh --channel 9.0 --install-dir $HOME/dotnet9
+echo 'export DOTNET_ROOT=$HOME/dotnet9' >> ~/.bashrc
+echo 'export PATH=$PATH:$HOME/dotnet9' >> ~/.bashrc
+source ~/.bashrc
+dotnet --list-sdks
+dotnet --list-runtimes
+
+# 12) Docker Engine 
+sudo apt update
+sudo apt install -y ca-certificates curl gnupg lsb-release
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=arm64 signed-by=/etc/apt/keyrings/docker.gpg] \
+https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
+  | sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo usermod -aG docker $USER
+newgrp docker  # применить изменения в текущей сессии
+docker --version
+docker compose version
