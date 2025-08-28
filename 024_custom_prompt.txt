@@ -1,0 +1,56 @@
+# ---------- Colors ----------
+YELLOW='\[\e[33m\]'
+LIGHT_GREEN='\[\e[92m\]'
+BRIGHT_GREEN='\[\e[1;92m\]'
+LIGHT_BLUE='\[\e[94m\]'
+RED='\[\e[31m\]'
+RESET='\[\e[0m\]'
+
+# ---------- Exit code pretty print ----------
+explain_exit() {
+  local code=$1
+  case $code in
+    0)   echo "" ;;
+    1)   echo "err: 1 (general error)" ;;
+    2)   echo "err: 2 (misuse of shell builtins)" ;;
+    126) echo "err: 126 (not executable)" ;;
+    127) echo "err: 127 (command not found)" ;;
+    128) echo "err: 128 (invalid exit argument)" ;;
+    130) echo "err: 130 (Ctrl+C)" ;;
+    137) echo "err: 137 (killed -9)" ;;
+    143) echo "err: 143 (terminated)" ;;
+    *)
+      if [[ $code -ge 128 && $code -le 190 ]]; then
+        echo "git: error code $code"
+      else
+        echo "err: $code"
+      fi
+      ;;
+  esac
+}
+
+# ---------- Git branch (без = и прочих символов) ----------
+for f in /usr/share/git/completion/git-prompt.sh /etc/bash_completion.d/git-prompt /usr/lib/git-core/git-sh-prompt; do
+  [[ -r "$f" ]] && source "$f" && break
+done
+
+# Отключаем все "украшения"
+export GIT_PS1_SHOWDIRTYSTATE=
+export GIT_PS1_SHOWUNTRACKEDFILES=
+export GIT_PS1_SHOWSTASHSTATE=
+export GIT_PS1_SHOWUPSTREAM=
+
+# ---------- Prompt ----------
+PROMPT_COMMAND='
+  exit_code=$?
+  cwd="${PWD/#$HOME/~}"   # заменяем /home/io на ~
+  git_branch=""
+  if type __git_ps1 >/dev/null 2>&1; then
+    __git_ps1 "%s" > /tmp/.ps1_git 2>/dev/null
+    b=$(</tmp/.ps1_git)
+    [[ -n "$b" ]] && git_branch=" ${LIGHT_BLUE}git: $b${RESET}"
+  fi
+  exit_str=$(explain_exit $exit_code)
+  [[ -n "$exit_str" ]] && exit_str=" ${RED}$exit_str${RESET}"
+  PS1="${YELLOW}\A${RESET} ${LIGHT_GREEN}\u@\h${RESET} ${BRIGHT_GREEN}${cwd}${RESET}${git_branch}${exit_str}\n$ "
+'
