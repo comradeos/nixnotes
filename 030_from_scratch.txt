@@ -1,0 +1,12 @@
+--- 
+установка quemu
+
+sudo apt update
+sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients virt-manager
+sudo usermod -aG libvirt,kvm $USER
+reboot
+virt-manager
+--- 
+
+
+
