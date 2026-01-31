@@ -1,0 +1,14 @@
+Скопировать файл на удалённый хост
+scp local_file user@host:/remote/path/
+scp install.sh io@192.168.0.50:/app/
+
+Скопировать файл с удалённого хоста
+scp user@host:/remote/path/file .
+scp io@192.168.0.50:/app/sys/app_boot.log .
+
+Скопировать директорию рекурсивно
+scp -r local_dir user@host:/remote/path/
+
+С указанием порта SSH
+scp -P 2222 file user@host:/path/
+

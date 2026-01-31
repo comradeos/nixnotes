@@ -1,0 +1,5 @@
+sudo ufw allow <port>
+
+sudo ufw allow 16000
+sudo ufw status
+

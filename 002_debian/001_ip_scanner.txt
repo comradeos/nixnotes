@@ -1,0 +1,2 @@
+sudo apt install arp-scan
+sudo arp-scan --localnet
