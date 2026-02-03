@@ -1,2 +1,9 @@
 sudo apt install arp-scan
 sudo arp-scan --localnet
+
+sudo apt update
+sudo apt install -y nmap
+
+sudo nmap -sn 192.168.0.1/255
+
+
