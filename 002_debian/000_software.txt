@@ -1,0 +1,17 @@
+sudo apt install audacious
+sudo apt install tmux
+sudo apt install vim
+sudo apt install nano
+sudo apt install mc
+sudo apt install btop
+sudo apt install htop
+sudo apt install gcc
+sudo apt install g++
+sudo apt install make
+sudo apt install git
+sudo apt install golang
+sudo apt install nginx
+sudo apt install nodejs npm
+sudo apt install python3 python3-pip
+sudo apt install default-jdk default-jre
+sudo apt install rustc cargo

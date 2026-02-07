@@ -1,0 +1,44 @@
+# IO -------
+
+alias io_bashrc_edit='vim ~/.bashrc'
+alias io_bashrc_source='source ~/.bashrc'
+
+#alias io_connect_<TARGET>='ssh -p <PORT> <NAME>@<IP>' 
+
+alias io_tmux_list='tmux ls'
+alias io_tmux_new='tmux new -s'
+alias io_tmux_attach='tmux attach -t'
+
+alias io_git_stat='git status'
+alias io_git_pull='git pull'
+alias io_git_push='git push'
+alias io_git_log='git log'
+alias io_git_log_rails='git log --oneline --graph --decorate --all'
+alias io_git_clone='git clone'
+alias io_git_reset='git reset --hard'
+
+io_git_set_email() {
+  git config --global user.email "$1"
+}
+
+io_git_set_name() {
+  git config --global user.name "$1"
+}
+
+alias io_git_branch='git branch'
+alias io_git_branch_new='git checkout -b'
+alias io_git_branch_publish='git push -u origin HEAD'
+
+io_git_branch_check() {
+  git checkout "$1"
+}
+
+io_git_commit() {
+  git add -A && git commit -m "$*"
+}
+
+io_git_update_from() {
+  git fetch origin "$1" && git merge "origin/$1"
+}
+ 
+# IO -------

@@ -1,0 +1,4 @@
+sudo nano /etc/apt/sources.list
+
+sudo apt update
+sudo apt install -y tar zip unzip
