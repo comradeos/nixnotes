@@ -1,0 +1,42 @@
+lsblk
+
+io@io:~$ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda           8:0    1 115.5G  0 disk 
+├─sda1        8:1    1   200M  0 part 
+└─sda2        8:2    1 115.3G  0 part /media/io/Flash Drive
+sdb           8:16   1  14.8G  0 disk 
+├─sdb1        8:17   1   3.9G  0 part /media/io/d-live 13.3.0 kd amd64
+└─sdb2        8:18   1   3.2M  0 part 
+nvme0n1     259:0    0 953.9G  0 disk 
+├─nvme0n1p1 259:1    0   300M  0 part /boot/efi
+├─nvme0n1p2 259:2    0 885.4G  0 part /
+└─nvme0n1p3 259:3    0  68.2G  0 part [SWAP]
+
+например хотим сделать загрузочную флешку с /media/io/d-live 13.3.0 kd amd64
+нужно писать в sdb (sd - значит storage drive)
+
+Размонтировать флешку
+
+sudo umount /dev/sdb1
+sudo umount /dev/sdb2 2>/dev/null || true
+(2>/dev/null || true - игнор ошибок)
+
+Записать ISO на флешку
+
+cd ~/Downloads (если ISO файл там)
+
+sudo dd \
+  if=debian-live-13.3.0-amd64-gnome.iso \
+  of=/dev/sdb \
+  bs=4M \
+  status=progress \
+  oflag=sync
+
+dd — Data Duplicator (копирует данные байт-в-байт)
+if — Input File (откуда читать)
+of — Output File (куда писать)
+bs — Block Size (размер блока)
+status=progress — показывать прогресс
+oflag=sync — Synchronous write (ждать реальной записи на устройство).
+
