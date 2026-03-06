@@ -3,3 +3,14 @@ ggdG
 
 дубликат строки
 yyp
+
+
+
+
+
+gg
+ShiftG
+Space 1 screen
+
+
+
