@@ -1,48 +1,15 @@
-hello 1
-hello 2
-hello 3
-hello 4
-hello 5
-hello 6
-hello 7
-hello 8
-TTyyy 9
-hello 10
-hello 11
-hello 12
 
-hello 1
-hello 2
-hello 3
-hello 4
-hello 5
-hello 6
-hello 7
+
+HELLO
+
+hello 
+
+asd
 
 
 
-total 72
-drwxr-xr-x@ 10 io  staff    320 May 10 17:56 .
-drwxr-xr-x@ 41 io  staff   1312 Mar 10 00:07 ..
--rw-r--r--@  1 io  staff  12288 May 10 17:57 .00_tutor_text.txt.swp
--rw-r--r--@  1 io  staff    157 May 10 17:56 00_tutor_text.txt
--rw-r--r--@  1 io  staff   1278 Apr 20 21:16 001_use.txt
--rw-r--r--@  1 io  staff    139 Mar  7 20:57 002_set.txt
--rw-r--r--@  1 io  staff      0 Mar  7 20:57 003_plug.txt
--rw-r--r--@  1 io  staff    163 Apr 28 21:24 004_macros.txt
--rw-r--r--@  1 io  staff     60 Apr 28 21:31 005_select.txt
--rw-r--r--@  1 io  staff     56 May 10 17:54 TEST
 
 
-00_tutor_text.txt
-001_use.txt
-
-002_set.txt
-003_plug.txt
-004_macros.txt
-005_select.txt
-TEST
 
 
-Hello World!
-l
+
